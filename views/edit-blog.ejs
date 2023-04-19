@@ -1,0 +1,36 @@
+<div class="container">
+    <form action="/update-blog?userId=<%= user.id; %>" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-9">
+                <div class="card offset-3" style="margin-top: 6em;">
+                    <div class="card-header text text-center">
+                        <h3 class="text-primary">Edit Blog</h3>
+                        <% if(status && message); { %>
+                            <div class="col-12 text text-danger">
+                                <%= message; %>
+                            </div>
+                            <%} %>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Title</label>
+                                <input type="text" name="title" id="title" class="form-control" value="<%= user.title; %>" />
+                            </div>
+                            <div class="col-6">
+                                <label>Image</label>
+                                <input type="file" name="blogimage" class="form-control" multiple="multiple">
+                            </div>
+                            <div class="col-12 mt-2">
+                                <label>Description</label>
+                                <textarea name="description" class="form-control"><%= user.description; %></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>

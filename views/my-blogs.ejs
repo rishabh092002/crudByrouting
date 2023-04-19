@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <table class="table responsive">
+                    <thead>
+                        <tr>
+                            <th>image</th>
+                            <th>title</th>
+                            <th>description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i = 0; i < user.length; i++) { 
+                            let blog = user[i]; 
+                            let imgName = (blog.image) ? blog.image.split(",")[0] : "" ; %>
+                            <tr>
+                                <td>
+                                    <img src="/images/<%= imgName; %>" alt="internal server error" width="150" height="150">
+                                </td>
+                                <td><%= blog.title; %></td>
+                                <td><%= blog.description; %></td>
+                                <td>
+                                    <a href="/edit-blog?userId=<%= user[i].id; %>" class="btn btn-primary">Edit</a>
+                                    <a href="/delete?userId=<%= user[i].id; %>" onclick="return confirm('Are you sure to delete this Blog ?'); " class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            <% }%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
